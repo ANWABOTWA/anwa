@@ -1,5 +1,5 @@
 {
-  "name": "ZEROYT7",
+  "name": "AnwaBot",
   "version": "1.0.0",
   "description": "None",
   "main": "main.js",
@@ -44,15 +44,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Errs404"
+    "url": "git+https://github.com/ANWABOTWA"
   },
   "keywords": [
     "Wasu"
   ],
-  "author": "Prassz",
+  "author": "ANWA",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Errs404/Base-Self-Zero/issue"
+    "url": "https://wa.me/6282281917822"
   },
-  "homepage": "https://github.com/Errs404/Errs404"
+  "homepage": "https://github.com/ANWABOTWA"
 }
