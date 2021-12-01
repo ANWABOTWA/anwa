@@ -1,0 +1,928 @@
+<!doctype html>
+<html>
+ <head> 
+  <title>Page Title</title>
+ </head>
+ <style type="text/css">
+    body {
+    margin-top:5;
+    margin-bottom:0;
+    margin-right:0;
+    margin-left:0;
+    background-color:white;
+}
+
+#canvas {
+    background-color:grey;
+}
+
+button {
+    width:100px;
+    height:30px;
+    margin:7px;
+}
+
+#score {
+    color:white;
+    font-family:"Courier New", Courier, monospace;
+    font-weight:900;
+}
+
+#scoreBoard {
+    margin-left:10px;
+    color:orange;
+    font-family:"Courier New", Courier, monospace;
+    font-weight:900;
+    float:left;
+    margin-top:2px;
+}
+
+#game {
+    display:none;
+}
+
+.abc {
+    margin:auto;
+    width:100%;
+    height:30px;
+    border:1px solid white;
+    background-color:black;
+    color:white;
+}
+
+.main {
+    margin:auto;
+    width:50%;
+}
+
+#start {
+    margin-top:20%;
+    margin-bottom:10%;
+}
+
+#diff {
+    margin-top:10%;
+    margin-bottom:10%;
+}
+
+#ls {
+    margin-top:10%;
+}
+
+#options {
+    display:block;
+    margin:auto;
+}
+
+.level {
+    margin:auto;
+    border:1px solid white;
+    background-color:black;
+    color:white;
+    width:90px;
+    height:20px;
+    border-radius:20px;
+}
+
+#center {
+    display:none;
+}
+
+#list {
+    display:none;
+}
+ul {
+    margin-left:40%;
+    color:orange;
+    font-weight:bold;
+    display:inline-block;
+    font-family:Georgia, Times, "Times New Roman", serif;
+}
+
+#downbutton {
+    margin:auto;
+    width:100px;
+    height:25px;
+}
+
+#menu {
+    width:100px;
+    height:25px;
+    margin-right:5px;
+    vertical-align:center;
+    float:right;
+    border:1px solid white;
+    background-color:black;
+    color:white;
+    outline:none;
+    border-radius:5px;
+}
+
+#pause {
+    width:100px;
+    height:25px;
+    margin-right:5px;
+    vertical-align:center;
+    float:right;
+    border:1px solid white;
+    background-color:black;
+    color:white;
+    outline:none;
+    border-radius:5px;
+}
+
+button {
+    font-family:Georgia, Times, "Times New Roman", serif;
+}
+
+#upbutton {
+    width:100px;
+    height:40px;
+    margin-tp:-10px;
+    border:1px solid white;
+    background-color:#000099;
+    color:orange;
+    border-radius:50%;
+    outline:none;
+}
+
+#leftbutton {
+    width:100px;
+    height:50px;
+    border:1px solid white;
+    background-color:#000099;
+    color:orange;
+    border-radius:50%;
+    outline:none;
+}
+
+#rightbutton {
+    width:100px;
+    height:50px;
+    border:1px solid white;
+    background-color:#000099;
+    color:orange;
+    border-radius:50%;
+    outline:none;
+}
+
+#downbutton {
+    height:40px;
+    border:1px solid white;
+    background-color:#000099;
+    color:orange;
+    border-radius:50%;
+    outline:none;
+    margin-top:-5px;
+}
+
+.typ {
+    margin:auto;
+    border:1px solid white;
+    color:white;
+    width:90px;
+    height:20px;
+    border-radius:20px;
+}
+
+#block {
+    background-color:#654321;
+}
+
+#open {
+    background-color:#e5e5e5;
+    color:black;
+}
+
+#t {
+    display:none;
+}
+
+#gt {
+    margin-bottom:10%;
+    margin-top:10%;
+}
+
+#easy {
+    background-color:#006600;
+}
+
+#medium {
+    background-color:#7f7fff;
+}
+
+#hard {
+    background-color:#cc0000;
+}
+
+#fcs {
+    margin-bottom:10%;
+    margin-top:10%;
+}
+
+#ss {
+    margin-bottom:10%;
+    margin-top:10%;
+}
+
+.s {
+    margin:auto;
+    border:1px solid white;
+    color:white;
+    width:90px;
+    height:20px;
+    border-radius:20px;
+}
+
+#size {
+    display:none;
+}
+
+#sm {
+    background-color:#006600;
+    outline:none;
+}
+
+#med {
+    background-color:#003300;
+    outline:none;
+}
+ </style>
+ <body> 
+  <div id="options"> 
+   <div class="main" id="start"> 
+    <button class="abc"> START </button> 
+   </div> 
+   <div class="main" id="gt"> 
+    <button class="abc" id="type"> GAME TYPE </button> 
+   </div> 
+   <center id="t"> 
+    <button id="block" class="typ"> BLOCK </button> 
+    <button id="open" class="typ"> OPEN </button> 
+   </center> 
+   <div class="main" id="ss"> 
+    <button class="abc" id="snakeSize"> SNAKE SIZE </button> 
+   </div> 
+   <center id="size"> 
+    <button id="sm" class="s">SMALL</button> 
+    <button id="med" class="s">MEDIUM</button> 
+   </center> 
+   <div class="main" id="diff"> 
+    <button class="abc" id="difficulty"> SPEED </button> 
+   </div> 
+   <center id="center"> 
+    <button class="level" id="easy"> SLOW </button> 
+    <button class="level" id="medium"> MEDIUM </button> 
+    <button class="level" id="hard"> FAST </button> 
+   </center> 
+   <div class="main" id="fcs"> 
+    <button class="abc" id="sound"> SOUND : OFF </button> 
+   </div> 
+   <div class="main" id="ls"> 
+    <button class="abc" id="lastscr"> YOUR TOP SCORES </button> 
+   </div> 
+   <div id="list"> 
+    <ul> 
+     <li></li> 
+     <li></li> 
+     <li></li> 
+     <li></li> 
+     <li></li> 
+     <li></li> 
+     <li></li> 
+     <li></li> 
+     <li></li> 
+    </ul> 
+   </div> 
+  </div> 
+  <div id="game"> 
+   <div> 
+    <span id="scoreBoard"> SCORE: </span> 
+    <span id="score"> 0 </span> 
+    <button id="menu"> MENU </button> 
+    <button id="pause"> PAUSE </button> 
+   </div> 
+   <canvas id="canvas" class="game"></canvas> 
+   <div> 
+    <center> 
+     <button id="leftbutton"> LEFT </button> 
+     <button id="upbutton"> UP </button> 
+     <button id="rightbutton"> RIGHT </button> 
+    </center> 
+    <center> 
+     <button id="downbutton"> DOWN </button> 
+    </center> 
+   </div> 
+  </div> 
+  <script>
+        var canvas = document.getElementById("canvas");
+        
+        var iw = window.innerWidth;
+        var ih = iw;
+        
+        canvas.height = ih;
+        canvas.width = iw;
+        
+        var c = canvas.getContext("2d");
+        
+        /* *********************** */
+        
+        var type = 1;
+        
+        // size
+        document.getElementById("sm").addEventListener("click", sbox);
+        
+        document.getElementById("med").addEventListener("click", mbox);
+        
+        function sbox() {
+            box = 6
+            document.getElementById("size").style.display = "none";
+        }
+        
+        function mbox() {
+            box = 12
+            document.getElementById("size").style.display = "none";
+        }
+        
+        var box = 12;
+        
+        var score = 0;
+        
+        var snake_speed = 1;
+        
+        var radius = box;
+        
+        var pauseVar;
+        
+        var err_hndl = 1;
+        
+        // direction
+        var d = "right";
+        
+        // sounds
+        
+        document.getElementById("sound").addEventListener("click", sound_func);
+        
+        var sound_off = 1;
+        
+        var menu_sound = new sound("https://www.dropbox.com/s/rrum92voclhv17c/Blip%201.wav?raw=1");
+        
+        var oth_sound = new sound("https://www.dropbox.com/s/o0gxnspzlz2ikcj/Blip%202.wav?raw=1");
+        
+        /* *********************** */
+        
+        // snake at its initial stage
+        var snakes = [];
+        
+        
+        
+        // constructor that creates snakes
+        function Snake(x, y) {
+            this.x = x;
+            this.y = y;
+            this.speed = snake_speed;
+        }
+        
+        // food
+        
+        var food = {
+            x:undefined,
+            y:undefined
+        };
+        
+        function set_food() {
+            food.x = (rand(box, iw/box) - box) * box;
+            food.y = (rand(box, iw/box) - box) * box;
+            for (let i = 0; i < snakes.length; i++) {
+                if (snakes[i].x == food.x && snakes[i].y == food.y) {
+                    set_food();
+                    break;
+                }
+            }
+        }
+        document.getElementById("rightbutton").addEventListener("click", rb);
+        document.getElementById("downbutton").addEventListener("click", db);
+        document.getElementById("leftbutton").addEventListener("click", lb);
+        document.getElementById("upbutton").addEventListener("click", ub);
+        document.addEventListener("keydown", direction1);
+        
+        // direction control for computer
+        function direction1(event) {
+            if (event.keyCode == 37 && d != "right" && pauseVar == 0 && err_hndl > 0) {
+                d = "left";
+                err_hndl = 0;
+            } else if (event.keyCode == 38 && d != "down" && pauseVar == 0 && err_hndl > 0) {
+                d = "up";
+                err_hndl = 0;
+            } else if (event.keyCode == 39 && d != "left" && pauseVar == 0 && err_hndl > 0) {
+                d = "right";
+                err_hndl = 0;
+            } else if (event.keyCode == 40 && d != "up" && pauseVar == 0 && err_hndl > 0) {
+                d = "down";
+                err_hndl = 0;
+            }
+        }
+        
+        // direction control functions for phone
+        function rb() {
+            if (d != "left" && pauseVar == 0 && err_hndl > 0) {
+                d = "right";
+                err_hndl = 0;
+            }
+        }
+        function db() {
+            if (d != "up" && pauseVar == 0 && err_hndl > 0) {
+                d = "down";
+                err_hndl = 0;
+            }
+        }
+        function lb() {
+            if (d != "right" && pauseVar == 0 && err_hndl > 0) {
+                d = "left";
+                err_hndl = 0;
+            }
+        }
+        function ub() {
+            if (d != "down" && pauseVar == 0 && err_hndl > 0) {
+                d = "up";
+                err_hndl = 0;
+            }
+        }
+        
+        //init();
+       document.getElementById("start").addEventListener("click", init);
+        
+        // a temporary variable to store the last element of the array
+        
+        var fps = 10;
+        var now;
+        var then;
+        var interval = 1000/fps;
+        var delta;
+        
+        var temp;
+        
+        function init() {        
+
+            if (sound_off == 0) {
+                oth_sound.play();
+            }
+            
+            pauseVar = 0;
+
+document.getElementById("pause").addEventListener("click", pause);         
+            document.getElementById("pause").innerHTML = "PAUSE";
+
+document.getElementById("center").style.display = "none";
+
+document.getElementById("list").style.display = "none";
+        document.getElementById("t").style.display = "none";
+            document.getElementById("options").style.display = "none";
+            
+            document.getElementById("size").style.display = "none";
+            
+            baby_snake();
+            
+            score = 0;
+             document.getElementById("score").innerHTML =  score;
+            
+            d = "right";
+            
+            c.clearRect(0, 0, iw, ih);
+            
+            set_food();
+            document.getElementById("game").style.display = "block";
+            then = Date.now();
+            // now call the animate function
+            animate();
+        }
+        
+        var temp;
+        
+        function animate() {
+            if (pauseVar == 0) {
+                temp = requestAnimationFrame(animate);
+            }
+            now = Date.now();
+            delta = now - then;
+            if (delta > interval) {
+                c.clearRect(0, 0, iw, ih);
+                main();
+            
+                // old head
+                let snakeX = snakes[0].x;
+                let snakeY = snakes[0].y;
+            
+                // controls the direction
+                switch (d) {
+                    case "right":
+                        snakeX += box;
+                        if (type == 1) {
+                            if (snakeX >= iw) {
+                                snakeX = 0;
+                            }
+                        }
+                        break;
+                    case "down":
+                        snakeY += box;
+                        if (type == 1) {
+                            if (snakeY >= ih) {
+                                snakeY = 0;
+                            }
+                        }
+                        break;
+                    case "left":
+                        snakeX -= box;
+                        if (type == 1) {
+                            if (snakeX < 0) {
+                                snakeX = iw - box;
+                            }
+                        }
+                        break;
+                    case "up":
+                        snakeY -= box;
+                        if (type == 1) {
+                            if (snakeY < 0) {
+                                snakeY = ih - box;
+                            }
+                        }
+                        break;
+                }
+                err_hndl++;
+                
+                // updates when the snake eats amd when it don't
+                control_food(snakeX, snakeY, food.x, food.y);
+                // new head
+                let newHead = new Snake(snakeX, snakeY);
+                // collision control
+                collision(newHead);
+                
+                snakes.unshift(newHead);
+                then = now - (delta % interval);
+            }
+        }
+        
+        // return a random number within a given range
+        function rand(min, max) {
+                if (min > max) {
+                    let temp = min;
+                    min = max;
+                    max = temp;
+                }
+                return Math.floor((Math.random() * (max - min)) + min);
+        }
+            
+        // the main function 
+        function main() {
+            for (let i = 0; i < snakes.length; i++) {
+                c.fillStyle = (i == 0)?"black":"green";
+                c.fillRect(snakes[i].x, snakes[i].y, box, box);
+                c.strokeStyle = "black";
+                c.strokeRect(snakes[i].x, snakes[i].y, box, box);
+            }
+            // food
+            
+            //c.arc(food.x, food.y, radius, 0, Math.PI*2, false);
+            c.fillStyle = "yellow";
+            c.fill();
+            c.strokeStyle = "black";
+            c.stroke();
+            c.fillRect(food.x, food.y, box, box);
+        }
+        
+        // this function update required things when the snake eats
+        
+        function control_food(snakeX, snakeY, fx, fy) {
+            if (snakeX == fx && snakeY == fy) {
+                if (sound_off == 0) {
+                    oth_sound.play();
+                }
+                set_score();
+                set_food();
+            } else {
+                snakes.pop();
+            }
+        }
+        
+        /*function control_food(snakeX, snakeY, fx, fy) {
+            if (((fy - radius < snakeY) && (fy + radius > snakeY + box) && (fx - radius < snakeX) && (fx + radius > snakeX)) || ((fy - radius < snakeY) && (fy + radius > snakeY + box) && (fx + radius > snakeX) && (fx - radius < snakeX)) || ((fx - radius < snakeX) && (fx + radius > snakeX + box) && (fy - radius < snakeY + box) && (fy + radius > snakeY + box)) || ((fx - radius < snakeX) && (fx + radius > snakeX + box) && (fy + radius > snakeY) && (fy - radius < snakeY))) {
+                set_score();
+                food.x = (rand(box, iw/box) - box) * box,
+                food.y = (rand(box, iw/box) - box) * box
+            } else {
+                snakes.pop();
+            }
+            /*if (snakeX == food.x && snakeY == food.y) {
+                set_score();
+                food.x = (rand(box, iw/box) * box) - box;
+                food.y = (rand(box, ih/box) * box) - box;
+            } else {
+            // remove tail
+            snakes.pop();
+        }
+    }*/
+        
+        // collision check / game over
+        var col;
+        
+        function collision(newHead) {
+            
+            col = 0;
+            
+            if (type == 0) {
+                if ((newHead.x > iw || newHead.x < 0 - box || newHead.y > ih || newHead.y < 0 - box) || suicideCheck() || (snakes[0].x >= iw || snakes[0].x < 0 || snakes[0].y >= ih || snakes[0].y < 0)) {
+                
+                    col = 1;
+                }
+            } else if (type == 1) {
+                if (suicideCheck()) {
+                    col = 1;
+                }
+            }
+            
+            if (col == 1) {
+                /*if (sound_off == 0) {
+                    menu_sound.play();
+                }*/
+                cancelAnimationFrame(temp);
+                c.clearRect(0, 0, iw, ih);
+                set_last_scores(score);
+                snakes = [];
+                
+                alert("Game Over !!  Your score is " + score);
+                document.getElementById("options").style.display = "block";
+            document.getElementById("game").style.display = "none";
+            }
+        }
+        
+        function suicideCheck() {
+            for (let i = 1; i < snakes.length; i++) {
+                if ((snakes[0].x == snakes[i].x) && (snakes[0].y == snakes[i].y)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        // update score
+        function set_score() {
+            document.getElementById("score").innerHTML =  ++score;
+            if (score > 3555) {
+                alert("You are the snake master..");
+                menu();
+            }
+        }
+        
+        // difficulty functions
+        
+        // set difficulty level
+        document.getElementById("difficulty").addEventListener("click", difficulty);
+        
+        function difficulty() {
+            
+            if (sound_off == 0) {
+                    menu_sound.play();
+                }
+            if (document.getElementById("center").style.display != "block") {
+    document.getElementById("list").style.display = "none";
+    
+            document.getElementById("t").style.display = "none";
+            document.getElementById("center").style.display = "block";
+            document.getElementById("size").style.display = "none";
+            } else {        
+            document.getElementById("center").style.display = "none";
+            }
+        }
+
+        
+        document.getElementById("easy").addEventListener("click", easy);
+        
+        document.getElementById("medium").addEventListener("click", medium);
+        
+        document.getElementById("hard").addEventListener("click", hard);
+        
+        function easy() {
+            if (sound_off == 0) {
+                    menu_sound.play();
+                }
+            fps = 5;
+            interval = 1000/fps;
+            document.getElementById("center").style.display = "none";
+        }
+        
+        function medium() {
+            if (sound_off == 0) {
+                    menu_sound.play();
+                }
+            fps = 10;
+            interval = 1000/fps;
+            document.getElementById("center").style.display = "none";
+        }
+        
+        function hard() {
+            if (sound_off == 0) {
+                    menu_sound.play();
+                }
+            fps = 30;
+            interval = 1000/fps;
+            document.getElementById("center").style.display = "none";
+        }
+        
+        // last scores
+        
+        document.getElementById("lastscr").addEventListener("click", ls);
+        
+        function ls() {
+            if (sound_off == 0) {
+                    menu_sound.play();
+                }
+            if (document.getElementById("list").style.display != "block") {
+                document.getElementById("center").style.display = "none";
+                
+                document.getElementById("t").style.display = "none";
+                document.getElementById("size").style.display = "none";
+           document.getElementById("list").style.display = "block";
+            } else {
+                document.getElementById("list").style.display = "none";
+            }
+        }
+        
+        var ls = [];
+        for (let i = 0; i < 9; i++) {
+            ls[i] = 0;
+        }
+        
+        function set_last_scores(score) {
+            for (let i = 0; i < 9; i++) {
+                if (score > ls[i]) {
+                    ls.unshift(score);
+                    break;
+                }
+            }
+            ls.sort(function(a, b){return b - a});
+            while (ls.length > 9) {
+                ls.pop();
+            }
+            for (let i = 0; i < ls.length; i++) {
+                document.getElementsByTagName("li")[i].innerHTML = ls[i];
+            }
+        }
+        
+        // snake size 
+        
+        document.getElementById("ss").addEventListener("click", snake_size);
+        
+        function snake_size() {
+            if (sound_off == 0) {
+                    menu_sound.play();
+                }
+            if (document.getElementById("size").style.display != "block") {
+                document.getElementById("center").style.display = "none";
+                
+                document.getElementById("t").style.display = "none";
+                document.getElementById("list").style.display = "none";
+           document.getElementById("size").style.display = "block";
+            } else {
+                document.getElementById("size").style.display = "none";
+            }
+        }
+        
+        // creates a small snake
+        function baby_snake() {
+            snakes[0] = new Snake(17*box, 17*box);
+            snakes[1] = new Snake(17*box - box, 17*box);
+        }
+        
+        // menu button function 
+        document.getElementById("menu").addEventListener("click", menu);
+        
+        function menu() {
+            if (sound_off == 0) {
+                    menu_sound.play();
+                }
+            cancelAnimationFrame(temp);
+            c.clearRect(0, 0, iw, ih);
+            set_last_scores(score);                
+                document.getElementById("options").style.display = "block";
+            document.getElementById("game").style.display = "none";
+                
+            score = 0;
+            snakes = [];
+        }
+        
+        // pause function 
+        
+        document.getElementById("pause").addEventListener("click", pause);
+        
+        function pause() {
+            pauseVar = 1;
+            
+            if (sound_off == 0) {
+                    menu_sound.play();
+                }
+            
+document.getElementById("pause").innerHTML = "RESUME";
+
+document.getElementById("pause").removeEventListener("click", pause);
+ document.getElementById("pause").addEventListener("click", play);
+        }
+        
+        // play function
+        
+        function play() {
+            
+            if (sound_off == 0) {
+                    menu_sound.play();
+                }
+
+document.getElementById("pause").innerHTML = "PAUSE";
+
+document.getElementById("pause").removeEventListener("click", play);
+ document.getElementById("pause").addEventListener("click", pause);
+             
+            pauseVar = 0;
+            
+            animate();
+        }
+        
+        // game type 
+        document.getElementById("type").addEventListener("click", gameType);
+        
+        function gameType() {
+            if (sound_off == 0) {
+                    menu_sound.play();
+                }
+            if (document.getElementById("t").style.display != "block") {
+
+document.getElementById("list").style.display = "none";
+
+document.getElementById("center").style.display = "none";
+
+document.getElementById("size").style.display = "none";
+                document.getElementById("t").style.display = "block";
+            } else {
+                document.getElementById("t").style.display = "none";
+            }
+        }
+        
+        //game type
+        
+        document.getElementById("block").addEventListener("click", block);
+        
+        function block() {
+            if (sound_off == 0) {
+                    menu_sound.play();
+                }
+            type = 0;
+            document.getElementById("t").style.display = "none";
+        }
+        
+        document.getElementById("open").addEventListener("click", open);
+        
+        function open() {
+            if (sound_off == 0) {
+                    menu_sound.play();
+                }
+            type = 1;
+            document.getElementById("t").style.display = "none";
+        }
+        
+        // sound constructor
+        
+        function sound(src) {
+            this.sound = document.createElement("audio");
+            this.sound.src = src;
+            this.sound.setAttribute("preload", "auto");
+            this.sound.setAttribute("controls", "none");
+            this.sound.style.display = "none";
+            document.body.appendChild(this.sound);
+            this.play = function() {
+                this.sound.play();
+            }
+            this.stop = function() {
+                this.sound.pause();
+            }
+        }
+        
+        // function to control sound button
+        
+        function sound_func() {
+            alert("There is some issue with the sound currently");
+            document.getElementById("list").style.display = "none";
+
+document.getElementById("center").style.display = "none";
+
+document.getElementById("size").style.display = "none";
+                document.getElementById("t").style.display = "none";
+            if (sound_off == 1) {
+                menu_sound.play();
+                sound_off = 0;
+                document.getElementById("sound").innerHTML = "SOUND : ON";
+            } else {
+                sound_off = 1;
+                document.getElementById("sound").innerHTML = "SOUND : OFF";
+            }
+        }
+    </script>
+ </body>
+</html>
